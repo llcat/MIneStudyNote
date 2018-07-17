@@ -1,0 +1,14 @@
+{"name":"hexo","hostname":"ypl-Inspiron-5547","pid":3682,"level":20,"msg":"Hexo version: \u001b[35m3.3.1\u001b[39m","time":"2017-04-15T01:31:39.950Z","v":0}
+{"name":"hexo","hostname":"ypl-Inspiron-5547","pid":3682,"level":20,"msg":"Working directory: \u001b[35m~/StudyNotes/blog/\u001b[39m","time":"2017-04-15T01:31:39.953Z","v":0}
+{"name":"hexo","hostname":"ypl-Inspiron-5547","pid":3682,"level":20,"msg":"Config loaded: \u001b[35m~/StudyNotes/blog/_config.yml\u001b[39m","time":"2017-04-15T01:31:40.030Z","v":0}
+{"name":"hexo","hostname":"ypl-Inspiron-5547","pid":3682,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-deployer-git\u001b[39m","time":"2017-04-15T01:31:40.041Z","v":0}
+{"name":"hexo","hostname":"ypl-Inspiron-5547","pid":3682,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-archive\u001b[39m","time":"2017-04-15T01:31:40.045Z","v":0}
+{"name":"hexo","hostname":"ypl-Inspiron-5547","pid":3682,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-category\u001b[39m","time":"2017-04-15T01:31:40.047Z","v":0}
+{"name":"hexo","hostname":"ypl-Inspiron-5547","pid":3682,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-index\u001b[39m","time":"2017-04-15T01:31:40.048Z","v":0}
+{"name":"hexo","hostname":"ypl-Inspiron-5547","pid":3682,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-json-content\u001b[39m","time":"2017-04-15T01:31:40.085Z","v":0}
+{"name":"hexo","hostname":"ypl-Inspiron-5547","pid":3682,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-tag\u001b[39m","time":"2017-04-15T01:31:40.086Z","v":0}
+{"name":"hexo","hostname":"ypl-Inspiron-5547","pid":3682,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-ejs\u001b[39m","time":"2017-04-15T01:31:40.088Z","v":0}
+{"name":"hexo","hostname":"ypl-Inspiron-5547","pid":3682,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-marked\u001b[39m","time":"2017-04-15T01:31:40.093Z","v":0}
+{"name":"hexo","hostname":"ypl-Inspiron-5547","pid":3682,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-stylus\u001b[39m","time":"2017-04-15T01:31:40.094Z","v":0}
+{"name":"hexo","hostname":"ypl-Inspiron-5547","pid":3682,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-server\u001b[39m","time":"2017-04-15T01:31:40.147Z","v":0}
+{"name":"hexo","hostname":"ypl-Inspiron-5547","pid":3682,"level":20,"msg":"Database saved","time":"2017-04-15T01:31:40.153Z","v":0}

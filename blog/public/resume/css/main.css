@@ -1,0 +1,199 @@
+nav{
+    background:transparent;
+    height: 50px;
+    width: 100%;
+}
+#banner{
+    background: transparent;
+    height: 500px;
+}
+nav ul{
+    height: inherit;
+    margin:0;
+    list-style: none;
+}
+nav ul li{
+    display:inline-block;
+    height: inherit;
+    float: right;
+    margin-right: 15px;
+}
+nav a{
+    text-decoration: none;
+    line-height: 50px;/*line-height表示的是一行的高度，而height表示的是元素的高度 */
+    /*设置这两个属性是为了方便人们点击，让a标签的可点击范围仅限于字的大小*/
+    display: inline-block;
+    height: inherit;
+    color: white;
+}
+nav .logo{
+    float: left;
+    font-size: 25px;
+    font-weight:700;
+    letter-spacing: 2px;
+    margin-left: 20px;
+}
+#banner .inner{
+    text-align: center;
+    max-width: 60%;
+    margin: 0 auto;
+    position: relative;
+    top: 160px;
+}
+button{
+    border: none;
+    padding: 5px 10px;
+    color: #eee;
+    background-color: #333;
+}
+.inner button{
+    padding: 5px 15px;
+}
+.inner h1{
+    margin: 0;
+}
+h2{
+    margin:0;
+}
+.hr{
+    height: 2px;
+    width: 100%;
+    margin: 20px auto;
+}
+.green-section{
+    background: #62b385;
+    text-align: center;
+    color: #ffffff;
+    padding-top: 100px;
+}
+.green-section .hr{
+    width: 30%;
+    background-color: #777777;
+}
+.wrapper h2{
+    margin: 0;
+}
+.wrapper{
+    max-width:1080px;
+    margin:0 auto;
+}
+.icon-group{
+    padding: 30px 0;
+}
+.icon{
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    background: #25b393;
+}
+.icon-group .icon{
+    transform: rotate(45deg);
+    margin: 0 30px;
+}
+.gray-section{
+    background: #646d65;
+    color: #ffffff;
+}
+
+/*将两个div拼到一行，同时应该保证父级元素的浮动，不然父级元素会收缩到一个合适的大小，或者是清除父级元素的浮动*/
+
+.gray-section div{
+    display: block;
+    float: left;
+}
+/*限制图片的大小，同时要让img的宽度填充父级元素的100%*/
+.img-section{
+    width: 45%;
+}
+.img-section img{
+    width:100%;
+    display: block;
+}
+.text-section{
+    width: 55%;
+}
+.article-preview:nth-child(2n+1){
+    background: rgba(204, 255, 227, 0.5);
+}
+.text-section h2{
+    margin-top: 25px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+.text-section p{
+    text-align: center;
+    margin:10px 40px;
+    font-size:18px;
+    letter-spacing: 1px;
+}
+.main-wrapper{
+    background:#62b385 url(../img/banner.jpg) no-repeat;
+    background-size: cover;
+}
+.purple-section{
+    background: rgba(66, 13, 133, 0.86);
+    color: white;
+    padding-top: 90px;
+    padding-bottom: 30px;
+    width: 100%;
+}
+.clear-fix:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.purple-section .heading-wrapper{
+    text-align: center;
+}
+.purple-section .heading-wrapper .hr{
+    background-color: chartreuse;
+}
+
+.card{
+    float: left;
+    width:50%;
+    min-height: 300px;
+    padding: 50px;
+    box-sizing: border-box;
+    /*border:1px solid #c0c0c0;*/
+}
+p{
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+.card:nth-child(1){
+    background: rgba(0,0,0,0.04);
+}
+.card:nth-child(2){
+    background: rgba(0,0,0,0.08);
+}
+.card:nth-child(3){
+    background: rgba(0,0,0,0.12);
+}
+.card:nth-child(4){
+    background: rgba(0,0,0,0.16);
+}
+.card:nth-child(5){
+    background: rgba(0,0,0,0.18);
+}
+.card:nth-child(6){
+    background: rgba(0,0,0,0.20);
+}
+footer{
+    background: rgba(100, 109, 101, 0.73);
+    min-height: 200px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+ul{
+    margin: 0;
+}
+ul.share-group{
+    display: block;
+}
+.share-group li{
+    display: inline-block;
+    padding: 30px 20px;
+    margin: 20px auto;
+}
