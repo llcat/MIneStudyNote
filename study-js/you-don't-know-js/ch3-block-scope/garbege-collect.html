@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>test garbege collect</title>
+    </head>
+    <body>
+        <button id="test-btn">test</button>
+        <button id="test-btn1">test1</button>
+        <script>
+            function process(data){
+                console.log(data)
+            }
+            var someReallyBigData = {
+                data: "assume that there are many data"
+            }
+
+            process(someReallyBigData);
+
+            var btn = document.getElementById("test-btn")
+            // when btn add a event listener call back, the someReallyData
+            // is stored in global scope, can't be collected even though
+            // we will not use it
+            btn.addEventListener("click", function handleClick(event){
+                console.log("btn clicked")
+                console.log(window.someReallyBigData)
+            })
+        </script>
+        <script>
+            function process1(data){
+                console.log(data)
+            }   
+            {
+                let someReallyBigData1 = {
+                    data: "assume that there are many data1"
+                }
+                process1(someReallyBigData1)
+            }
+
+            var btn1 = document.getElementById("test-btn1")
+            btn1.addEventListener("click", function handleClick(event){
+                console.log("btn1 clicked")
+                console.log(window.someReallyBigData1)
+            })
+        </script>
+    </body>
+</html>
