@@ -1,14 +1,14 @@
 import React from 'react'
 
-class FileUpLoader extends React.Component {
+class VideoGallery extends React.Component {
 
     render() {
         return (
             <div>
-                file upload
+                video galley
             </div>
         )
     }
 }
 
-export default FileUpLoader;
+export default VideoGallery;

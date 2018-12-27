@@ -1,8 +1,15 @@
 import React from 'react';
 import LoginForm from './LoginForm';
-import './App.css';
 import TopHeader from './TopHeader';
+import OperateMenu from './OperateMenu'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Layout } from 'antd'
+import FileUpLoader from './FileUpLoader'
+import VideoGallery from './VideoGallery'
+import './App.css';
+
+
+const { Content } = Layout
 
 class App extends React.Component {
 
@@ -28,7 +35,6 @@ class App extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <Router>
                 <div className="app">
@@ -50,9 +56,15 @@ class App extends React.Component {
                             />
                         </div>
                     )} />
-                    <Route path="/home" render={() => (
+                    <Route path="/home" exact render={(props) => (
                         <div className="main-container">
-                            test
+                            <Layout>
+                                <OperateMenu />
+                                <Content style={{margin:"0 2vw"}}>
+                                    <VideoGallery />
+                                    <Route path={props.match.url+"/upload"} component={FileUpLoader} />
+                                </Content>
+                            </Layout>
                         </div>
                     )} />
                 </div>
