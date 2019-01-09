@@ -1,0 +1,16 @@
+.vc-tool-bar{
+    display: flex;
+    font-size: 2.5vh;
+}
+
+.vc-watched {
+    margin: 0 1vw;
+}
+
+.vc-favorite {
+    margin: 0 1vw;
+}
+
+.vc-delete {
+    margin: 0 1vw;
+}

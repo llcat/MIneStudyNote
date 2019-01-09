@@ -2,7 +2,7 @@ import React from 'react'
 
 const Welcome = (props) => (
     <div>
-        <h2>Welcome,{props.userName}</h2>
+        <h2>Welcome!</h2>
     </div>
 )
 

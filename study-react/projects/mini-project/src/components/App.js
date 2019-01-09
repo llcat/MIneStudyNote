@@ -2,13 +2,13 @@ import React from 'react';
 import LoginForm from './LoginForm';
 import TopHeader from './TopHeader';
 import OperateMenu from './OperateMenu'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 import { Layout } from 'antd'
 import FileUpLoader from './FileUpLoader'
 import VideoGallery from './VideoGallery'
 import Welcome from './Welcome'
 import './App.css';
-
+import db from '../util/db'
 
 const { Content } = Layout
 
@@ -23,14 +23,30 @@ class App extends React.Component {
         this.onUserLogOut = this.onUserLogOut.bind(this)
     }
 
-    onLoginFormSubmit(userInfo){
+    componentDidMount(){
+        db.getCurrentUser()
+            .then(userInfo=>{
+                if(Object.keys(userInfo).length>0){
+                    this.setState({
+                        userInfo: userInfo
+                    })
+                    this.props.history.replace("/home")
+                }
+            })
+            .catch(err=>{
+                this.props.history.replace("/login")       
+            })
+    }
 
+    onLoginFormSubmit(userInfo){
+        db.setCurrentUser(userInfo)
         this.setState({
             userInfo: userInfo
         })
     }
 
     onUserLogOut(){
+        db.removeCurrentUser()
         this.setState({
             userInfo: {}
         })
@@ -56,18 +72,20 @@ class App extends React.Component {
                     />
                 )} />
                 <Route path="/home" render={(props) => (
-                    <div className="main-container">
-                        <Layout>
-                            <OperateMenu {...props} />
-                            <Content style={{margin:"0 2vw"}}>
-                                <Switch>
-                                    <Route path={props.match.url+"/gallery"} component={VideoGallery} />
-                                    <Route path={props.match.url+"/upload"} component={FileUpLoader} />
-                                    <Route component={Welcome} />
-                                </Switch>
-                            </Content>
-                        </Layout>
-                    </div>
+                    Object.keys(this.state.userInfo).length>0?(
+                        <div className="main-container">
+                            <Layout>
+                                <OperateMenu {...props} />
+                                <Content style={{margin:"0 2vw"}}>
+                                    <Switch>
+                                        <Route path={props.match.url+"/gallery"} component={VideoGallery} />
+                                        <Route path={props.match.url+"/upload"} component={FileUpLoader} />
+                                        <Route component={Welcome} />
+                                    </Switch>
+                                </Content>
+                            </Layout>
+                        </div>
+                    ):null
                 )} />
             </div>  
         );
@@ -75,5 +93,5 @@ class App extends React.Component {
 
 }
 
-export default App;
+export default withRouter(App);
 
