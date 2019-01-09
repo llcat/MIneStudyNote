@@ -2,10 +2,11 @@ import React from 'react';
 import LoginForm from './LoginForm';
 import TopHeader from './TopHeader';
 import OperateMenu from './OperateMenu'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { Layout } from 'antd'
 import FileUpLoader from './FileUpLoader'
 import VideoGallery from './VideoGallery'
+import Welcome from './Welcome'
 import './App.css';
 
 
@@ -16,59 +17,59 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            userName: ""
+            userInfo: {}
         }
         this.onLoginFormSubmit = this.onLoginFormSubmit.bind(this)
         this.onUserLogOut = this.onUserLogOut.bind(this)
     }
 
     onLoginFormSubmit(userInfo){
+
         this.setState({
-            userName: userInfo.userName
+            userInfo: userInfo
         })
     }
 
     onUserLogOut(){
         this.setState({
-            userName: ""
+            userInfo: {}
         })
     }
 
     render() {
         return (
-            <Router>
-                <div className="app">
-                    <Route path="/" render={(props) => {
-                        return (
-                            <TopHeader 
-                              {...props} 
-                              userName={this.state.userName}
-                              onUserLogOut={this.onUserLogOut}
-                            />
-                        )
-                    }}
+            <div className="app">
+                <Route path="/" render={(props) => {
+                    return (
+                        <TopHeader 
+                            {...props} 
+                            userInfo={this.state.userInfo}
+                            onUserLogOut={this.onUserLogOut}
+                        />
+                    )
+                }}
+                />
+                <Route path="/login" render={(props) => (
+                    <LoginForm 
+                    {...props} 
+                    onLoginFormSubmit={this.onLoginFormSubmit} 
                     />
-                    <Route path="/login" render={(props) => (
-                        <div className="form-container">
-                            <LoginForm 
-                              {...props} 
-                              onLoginFormSubmit={this.onLoginFormSubmit} 
-                            />
-                        </div>
-                    )} />
-                    <Route path="/home" exact render={(props) => (
-                        <div className="main-container">
-                            <Layout>
-                                <OperateMenu />
-                                <Content style={{margin:"0 2vw"}}>
-                                    <VideoGallery />
+                )} />
+                <Route path="/home" render={(props) => (
+                    <div className="main-container">
+                        <Layout>
+                            <OperateMenu {...props} />
+                            <Content style={{margin:"0 2vw"}}>
+                                <Switch>
+                                    <Route path={props.match.url+"/gallery"} component={VideoGallery} />
                                     <Route path={props.match.url+"/upload"} component={FileUpLoader} />
-                                </Content>
-                            </Layout>
-                        </div>
-                    )} />
-                </div>
-            </Router>
+                                    <Route component={Welcome} />
+                                </Switch>
+                            </Content>
+                        </Layout>
+                    </div>
+                )} />
+            </div>  
         );
     }
 

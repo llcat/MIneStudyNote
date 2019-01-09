@@ -17,16 +17,16 @@ class TopHeader extends React.Component {
     }
 
     render() {
-        const userName = this.props.userName;
-        console.log("top-header",this.props)
+        const userInfo = this.props.userInfo;
+        const nickname = userInfo.nickname || ""
         return (
             <div className="top-header">
                 <span className="app-name">Mini Project</span>
                 {
-                    userName.length>0?
+                    nickname.length>0?
                     <div className="user-info">
                         <Avatar src={faker.image.avatar()} />
-                        <span className="user-name">{this.props.userName}</span>
+                        <span className="user-name">{nickname}</span>
                         <Button type="dashed" onClick={this.handleUserLogOut}>登出</Button>
                     </div>:
                     <div className="user-info">

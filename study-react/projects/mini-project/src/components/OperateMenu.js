@@ -1,6 +1,5 @@
 import React from 'react'
 import { Menu, Layout, Icon } from 'antd'
-import { Link } from 'react-router-dom'
 const { Sider } = Layout
 
 class OperateMenu extends React.Component {
@@ -16,7 +15,16 @@ class OperateMenu extends React.Component {
     }
 
     onSelect = ({ item, key, selectedKeys }) => {
-        console.log(item, key, selectedKeys)
+        switch(key){
+            case "1":
+                this.props.history.replace("/home/gallery")
+                break;
+            case "2":
+                this.props.history.replace("/home/upload")
+                break;
+            default:
+                break;
+        }
     }
 
     render() {
@@ -29,7 +37,6 @@ class OperateMenu extends React.Component {
                 >
                     <Menu 
                         theme="light" 
-                        defaultSelectedKeys={['1']} 
                         mode="inline"
                         onSelect={this.onSelect}
                     >
