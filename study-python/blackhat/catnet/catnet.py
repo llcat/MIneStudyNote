@@ -10,6 +10,7 @@ import socket
 import getopt
 import threading
 import subprocess
+import time
 
 listen = False
 command = False
@@ -86,7 +87,7 @@ def main():
     if not listen and len(target) and port > 0:
 
         buffer = sys.stdin.read()
-
+        print(type(buffer), len(buffer))
         client_sender(buffer)
 
     if listen:
@@ -98,6 +99,7 @@ def client_sender(buffer):
     try:
         client.connect((target, port))
         if len(buffer):
+            print("client_sender:",len(buffer))
             client.send(buffer)
 
         while True:
@@ -107,18 +109,22 @@ def client_sender(buffer):
             while recv_len:
                 data = client.recv(4096)
                 recv_len = len(data)
-                response += data
+                print("recv_len:",recv_len)
+                print(type(data), str(data))
+                response += str(data)
 
                 if recv_len < 4096:
                     break
-
+            print(len(response))
             print(response)
 
-            buffer = input("")
+            buffer = input(">>>")
             buffer += "\n"
-            client.send(buffer)
-    except:
+            print("input_cmd:",buffer, type(buffer), len(buffer))
+            client.send(bytes(buffer, "utf8"))
+    except Exception as e:
         print("[*] Exception Existing.")
+        print(e)
         client.close()
 
 def server_loop():
@@ -135,11 +141,12 @@ def server_loop():
 
     while True:
         client_socket, addr = server.accept()
-
+        print(addr)
         client_thread = threading.Thread(target=client_handler, args=(client_socket,))
         client_thread.start()
 
 def run_command(command):
+    print("start run command")
     command = command.rstrip()
     try:
         output = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
@@ -179,13 +186,20 @@ def client_handler(client_socket):
 
     if command:
         while True:
-            client_socket.send("<CAT:#> ")
+            client_socket.send(b"<CAT:#> ")
             cmd_buffer = ""
-
+            time.sleep(3)
             while "\n" not in cmd_buffer:
-                cmd_buffer += client_socket.recv(1024)
-                response = run_command(cmd_buffer)
-                client_socket.send(response)
+                print("start recv cmd")
+                data = client_socket.recv(1024)
+                time.sleep(3)
+                print("cmd data:",data, type(data), len(data))
+                cmd_buffer += str(data,"utf8")
+                print(cmd_buffer)
+
+            print("exit while",cmd_buffer)
+            response = run_command(cmd_buffer)
+            client_socket.send(response)
 
 
 if __name__ == "__main__":
