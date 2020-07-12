@@ -1,4 +1,4 @@
-package easy;
+package easy.tree;
 
 public class Easy700 {
     //Definition for a binary tree node.

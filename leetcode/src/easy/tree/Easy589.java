@@ -1,4 +1,4 @@
-package easy;
+package easy.tree;
 import java.util.*;
 
 // Definition for a Node.

@@ -1,4 +1,4 @@
-package easy;
+package easy.tree;
 
 /**
  * https://leetcode.com/problems/merge-two-binary-trees/
