@@ -1,7 +1,5 @@
 package easy.array;
 
-import java.util.Map;
-
 public class Easy977 {
     public int[] sortedSquares(int[] A) {
         int[] r = new int[A.length];
